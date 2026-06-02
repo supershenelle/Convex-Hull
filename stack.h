@@ -2,7 +2,7 @@
 
     >> Encode your group number (2 digits) and last names, first names and sections of group members.  Encode the purpose of this file.
 
-    Group #: 00 (2 digits)
+    Group #: 06 (2 digits)
 
     LASTNAME1, FIRSTNAME1  SECTION
     LASTNAME2, FIRSTNAME2  SECTION
@@ -33,6 +33,56 @@
 
 // you may include other header files
 
-// example FUNCTION PROTOTYPE -- remove this and the next line in your own codes
-void Sample(int x);
+void Push(int a[], int *top)
+{
+    int x;
+
+    if (*top > SIZE)
+        printf("Stack Overflow Error!\n");
+ 
+    
+    else
+    {
+    	printf("Enter value: ");
+	    scanf("%d", &x);
+	
+	    (*top)++;
+	    a[*top] = x;
+	    Update(a, top);
+	}
+    
+    printf("\n\n");
+}
+
+void Pop(int a[], int *top)
+{
+	int x;
+	
+	if (*top < 1)
+		printf("Stack Underflow Error!\n");
+	
+	else
+	{
+		Update(a, top);
+		printf("Now initiating pop function...\n");
+		
+		int temp = a[*top];
+		(*top) = (*top) - 1;
+		printf("Pop value: %d\n", temp);
+		Update(a, top);
+	}
+	
+	printf("\n\n");
+}
+
+void Full(int *top)
+{
+	if (SIZE == *top)
+		printf("Stack is full\n");
+	
+	else
+		printf("Stack is not yet full\n");
+		
+	printf("\n\n");
+}
   
