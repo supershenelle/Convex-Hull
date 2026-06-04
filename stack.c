@@ -51,9 +51,55 @@
     e. Return: None
     f. Parameters: x is the ...    
 */
-void Sample(int x)
+void Push(int a[], int *top)
 {
-    // document also the body of the function
-    printf("Hello %d.\n", x);
+    int x;
+
+    if (*top > SIZE)
+        printf("Stack Overflow Error!\n");
+ 
+    
+    else
+    {
+    	printf("Enter value: ");
+	    scanf("%d", &x);
+	
+	    (*top)++;
+	    a[*top] = x;
+	    Update(a, top);
+	}
+    
+    printf("\n\n");
 }
 
+void Pop(int a[], int *top)
+{
+	int x;
+	
+	if (*top < 1)
+		printf("Stack Underflow Error!\n");
+	
+	else
+	{
+		Update(a, top);
+		printf("Now initiating pop function...\n");
+		
+		int temp = a[*top];
+		(*top) = (*top) - 1;
+		printf("Pop value: %d\n", temp);
+		Update(a, top);
+	}
+	
+	printf("\n\n");
+}
+
+void Full(int *top)
+{
+	if (SIZE == *top)
+		printf("Stack is full\n");
+	
+	else
+		printf("Stack is not yet full\n");
+		
+	printf("\n\n");
+}

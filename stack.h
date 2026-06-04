@@ -32,57 +32,8 @@
 #include <stdlib.h>
 
 // you may include other header files
+#define SIZE 5 // sample value
 
-void Push(int a[], int *top)
-{
-    int x;
-
-    if (*top > SIZE)
-        printf("Stack Overflow Error!\n");
- 
-    
-    else
-    {
-    	printf("Enter value: ");
-	    scanf("%d", &x);
-	
-	    (*top)++;
-	    a[*top] = x;
-	    Update(a, top);
-	}
-    
-    printf("\n\n");
-}
-
-void Pop(int a[], int *top)
-{
-	int x;
-	
-	if (*top < 1)
-		printf("Stack Underflow Error!\n");
-	
-	else
-	{
-		Update(a, top);
-		printf("Now initiating pop function...\n");
-		
-		int temp = a[*top];
-		(*top) = (*top) - 1;
-		printf("Pop value: %d\n", temp);
-		Update(a, top);
-	}
-	
-	printf("\n\n");
-}
-
-void Full(int *top)
-{
-	if (SIZE == *top)
-		printf("Stack is full\n");
-	
-	else
-		printf("Stack is not yet full\n");
-		
-	printf("\n\n");
-}
-  
+void Push(int a[], int *top);
+void Pop(int a[], int *top);
+void Full(int *top);
