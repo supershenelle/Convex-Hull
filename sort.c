@@ -52,3 +52,24 @@
     e. Return: None
     f. Parameters: x is the ...    
 */
+
+void insertionSort(int a[], int n) // sorting still not based on polar angle
+{
+    int i;
+    int j;
+    int temp;
+
+    for(i = 1; i < n; i++)
+    {
+        temp = a[i]; // store the index ur currently sorting to in temp
+        j = i - 1; // left side of the index ur currently sorting
+
+        while(j >= 0 && a[j] > temp) //while the left side is bigger than the index ur currently sorting
+        {
+            a[j + 1] = a[j]; // shift the left side to right 
+            j--; // decrement
+        }
+        a[j + 1] = temp; // insert temp to correct position/index
+    }
+}
+
