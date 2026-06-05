@@ -53,7 +53,9 @@
     f. Parameters: x is the ...    
 */
 
-void insertionSort(int a[], int n) // sorting still not based on polar angle
+// sorting still not based on polar angle
+
+void insertionSort(int a[], int n) 
 {
     int i;
     int j;
@@ -73,3 +75,45 @@ void insertionSort(int a[], int n) // sorting still not based on polar angle
     }
 }
 
+void quickSort(int a[], int start, int end)
+{
+    if(end <= start) return; // base case
+
+    int pivot = partition( a, start, end); // sort array to find pivot
+    quickSort(a, start, pivot - 1); // left partition
+    quickSort(a, pivot + 1, end);  // right partition
+      
+}
+
+//helper function for quicksort
+int partition(int a[], int start, int end)
+{
+    int pivot; //for this variation, pivot will always be at the end
+    int i;
+    int j;
+    int temp;
+
+
+    pivot = a[end];
+    i = start - 1;
+
+    for(int j = start; j <= end - 1; j++)
+    {
+         if(a[j] < pivot) // 
+         {
+            i++;
+            // swap
+            temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+         }
+    }
+    i++;
+ 
+    temp = a[i];
+    a[i] = a[end];
+    a[end] = temp;
+     
+    return i; //location of pivot  
+      
+}
