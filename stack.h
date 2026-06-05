@@ -33,7 +33,11 @@
 
 // you may include other header files
 #define SIZE 5 // sample value
+#include "stdbool.h"
 
 void Push(int a[], int *top);
-void Pop(int a[], int *top);
-void Full(int *top);
+double Pop(int a[], int *top);
+bool isFull(int *top);
+bool isEmpty(int *top);
+double Top(int a[], int *top);
+double nextToTop(int a[], int *top);

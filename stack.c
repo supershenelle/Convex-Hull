@@ -23,6 +23,7 @@
 
 // include your own stack header file
 #include "stack.h"
+#include "stdbool.h"
 
 
 /*
@@ -44,8 +45,8 @@
 
 
 /*
-    a. Name of Programmer(s):  Juan de la Cruz, Anna Santos
-    b. Name of Tester(s)    :  Ichiro Makino
+    a. Name of Programmer(s):  Shenelle Andrea Nono
+    b. Name of Tester(s)    :  
     c. Code Type -- 100% Human Generated 
     d. Purpose: this function will ....
     e. Return: None
@@ -72,9 +73,10 @@ void Push(int a[], int *top)
     printf("\n\n");
 }
 
-void Pop(int a[], int *top)
+double Pop(int a[], int *top)
 {
 	int x;
+    int elem = -1;
 	
 	if (*top < 1)
 		printf("Stack Underflow Error!\n");
@@ -84,22 +86,40 @@ void Pop(int a[], int *top)
 		Update(a, top);
 		printf("Now initiating pop function...\n");
 		
-		int temp = a[*top];
+		elem = a[*top];
 		(*top) = (*top) - 1;
-		printf("Pop value: %d\n", temp);
 		Update(a, top);
 	}
 	
-	printf("\n\n");
+    return elem;
 }
 
-void Full(int *top)
+bool isFull(int *top)
 {
 	if (SIZE == *top)
-		printf("Stack is full\n");
+		return true;
 	
-	else
-		printf("Stack is not yet full\n");
-		
-	printf("\n\n");
+    else
+        return false;
 }
+
+bool isEmpty(int *top)
+{
+    if (*top == 0)
+        return true;
+
+    else
+        return false;
+}
+
+double Top(int a[], int *top)
+{
+    return a[*top];
+}
+
+double nextToTop(int a[], int *top)
+{
+    return a[(*top)-1];
+}
+
+// test notes: implement test-stack.c, verify if no bugs
