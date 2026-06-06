@@ -102,13 +102,31 @@ Error: Stack is full
 
 int main()
 {
-   // test the stack operations by calling the stack function.
+    Stack stack;
+    Point elem;
 
-   int x = 123; // document the purpose of the local variable(s)
+    // 1. CREATE where ISEMPTY should return true
+    CREATE(&stack);
 
-   Sample(x);  // replace this line of code with your own set of codes
+    if (ISEMPTY(&stack))
+        printf("1. CREATE - PASSED\n");
+    else
+        printf("1. CREATE - FAILED\n");
 
-   return 0;
+    // 2. PUSH return TOP and NEXT TO TOP VALUES
+    Point p1 = {10.0, 0.0}; // assume na ito ung values???
+    Point p2 = {20.0, 0.0};
+    Point p3 = {30.0, 0.0};
+
+    PUSH(&stack, p1);
+    PUSH(&stack, p2);
+    PUSH(&stack, p3);
+
+    // prinint ko nalang ung x kasi di ko alam kung tama b .. 
+    printf("TOP should be 30: %.1f\n", TOP(&stack).x);
+    printf("NEXT_TO_TOP should be 20: %.1f\n", NEXT_TO_TOP(&stack).x);
+
+    return 0;
 }
 
 

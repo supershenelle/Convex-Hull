@@ -52,74 +52,65 @@
     e. Return: None
     f. Parameters: x is the ...    
 */
-void Push(int a[], int *top)
+void CREATE(Stack *stack)
+{
+    stack->top = 0; // initialize top value to 0
+}
+
+void PUSH(Stack *stack, Point elem)
 {
     int x;
 
-    if (*top > SIZE)
+    if (ISFULL(stack))
         printf("Stack Overflow Error!\n");
- 
     
     else
     {
-    	printf("Enter value: ");
-	    scanf("%d", &x);
-	
-	    (*top)++;
-	    a[*top] = x;
-	    Update(a, top);
-	}
-    
-    printf("\n\n");
+        stack->top++; // increment top to 1
+        stack->coords[stack->top] = elem; // store elem in 1
+    }
 }
 
-double Pop(int a[], int *top)
+Point POP(Stack *stack)
 {
-	int x;
-    int elem = -1;
-	
-	if (*top < 1)
+    Point temp; // temp that will store pop value
+
+	if (stack->top == 0)
 		printf("Stack Underflow Error!\n");
 	
 	else
-	{
-		Update(a, top);
-		printf("Now initiating pop function...\n");
-		
-		elem = a[*top];
-		(*top) = (*top) - 1;
-		Update(a, top);
-	}
+        temp = stack->coords[stack->top];
+		stack->top--; // decrement top
 	
-    return elem;
+    return temp; // return popped value
 }
 
-bool isFull(int *top)
+bool ISFULL(Stack *stack)
 {
-	if (SIZE == *top)
+	if (stack->top == STACK_SIZE)
 		return true;
 	
     else
         return false;
 }
 
-bool isEmpty(int *top)
+bool ISEMPTY(Stack *stack)
 {
-    if (*top == 0)
+    if (stack->top == 0)
         return true;
 
     else
         return false;
 }
 
-double Top(int a[], int *top)
+Point TOP(Stack *stack)
 {
-    return a[*top];
+    return stack->coords[stack->top];
 }
 
-double nextToTop(int a[], int *top)
+Point NEXT_TO_TOP(Stack *stack)
 {
-    return a[(*top)-1];
+    return stack->coords[(stack->top)-1];
 }
 
 // test notes: implement test-stack.c, verify if no bugs
