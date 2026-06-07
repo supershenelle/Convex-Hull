@@ -77,9 +77,11 @@ void insertionSort(int a[], int n)
 
 void quickSort(int a[], int start, int end)
 {
+    int pivot; // location of pivot
+
     if(end <= start) return; // base case
 
-    int pivot = partition( a, start, end); // sort array to find pivot
+    pivot = partition( a, start, end); // sort array to find pivot
     quickSort(a, start, pivot - 1); // left partition
     quickSort(a, pivot + 1, end);  // right partition
       
