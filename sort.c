@@ -172,28 +172,23 @@ int partition(int a[], int start, int end)
     int pivot; //for this variation, pivot will always be at the end
     int i;
     int j;
-    int temp;
 
 
     pivot = a[end];
     i = start - 1;
 
-    for(int j = start; j <= end - 1; j++)
+    for(j = start; j <= end - 1; j++)
     {
          if(a[j] < pivot) // 
          {
             i++;
             // swap
-            temp = a[i];
-            a[i] = a[j];
-            a[j] = temp;
+            swapPointArray(a, i, j)
          }
     }
     i++;
  
-    temp = a[i];
-    a[i] = a[end];
-    a[end] = temp;
+    swapPointArray(a, i, end)
      
     return i; //location of pivot  
       
