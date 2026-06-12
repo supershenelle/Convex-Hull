@@ -45,6 +45,16 @@ int main(){
     anchor = findAnchorPoint(coordinate, n); // get anchor index
     printf("anchor index: %d || anchor point: (%lf, %lf)\n\n", anchor, coordinate[anchor].x, coordinate[anchor].y); // check if anchor correct
 
+    swapPointArray(coordinate, 0, anchor); // swap anchor to first index
+    anchor = 0; //update anchor index 
+
+     //print coordinates to check if na swap
+        for(int i = 0; i < n; i++)
+    {
+        printf("%lf %lf\n", coordinate[i].x, coordinate[i].y);
+    }
+    printf("\n");
+
     // test if nakukuha polar angle
     printf("point 1: (%lf, %lf), point 2: (%lf, %lf)\n", coordinate[anchor].x, coordinate[anchor].y, coordinate[1].x, coordinate[1].y);
     printf("polar angle: %lf\n\n", polarAngle(coordinate[1], coordinate[anchor]));
