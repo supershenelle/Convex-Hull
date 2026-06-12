@@ -183,12 +183,12 @@ int partition(int a[], int start, int end)
          {
             i++;
             // swap
-            swapPointArray(a, i, j)
+            swapPointArray(a, i, j);
          }
     }
     i++;
  
-    swapPointArray(a, i, end)
+    swapPointArray(a, i, end);
      
     return i; //location of pivot  
       
