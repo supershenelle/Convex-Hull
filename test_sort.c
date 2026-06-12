@@ -22,22 +22,66 @@
 
 int main(){
 
-    int a[] = {9, 1, 8, 2, 7, 3, 6, 5, 4};
-    int b[] = {9, 1, 8, 2, 7, 3, 6, 5, 4};
+    FILE *fp;
+    Point coordinate[100];
+    int n; //number of points sa file
+    int anchor;
 
-    insertionSort(a, 9);
+    fp = fopen("sample-input.txt", "r"); //open input file
+    fscanf(fp, "%d", &n);   //read number of points
 
-    for(int i = 0; i < 9; i++)
+    //store in array
+    for (int i = 0; i < n; i++) { 
+        fscanf(fp, "%lf %lf", &coordinate[i].x, &coordinate[i].y);  
+    }
+
+    //print coordinates to check if stored correctly
+    for(int i = 0; i < n; i++)
     {
-        printf("%d ", a[i]);
+        printf("%lf %lf\n", coordinate[i].x, coordinate[i].y);
     }
     printf("\n");
 
-    quickSort(b, 0, 8);
+    anchor = findAnchorPoint(coordinate, n); // get anchor index
+    printf("anchor index: %d || anchor point: (%lf, %lf)\n\n", anchor, coordinate[anchor].x, coordinate[anchor].y); // check if anchor correct
 
-    for(int i = 0; i < 9; i++)
+    // test if nakukuha polar angle
+    printf("point 1: (%lf, %lf), point 2: (%lf, %lf)\n", coordinate[anchor].x, coordinate[anchor].y, coordinate[1].x, coordinate[1].y);
+    printf("polar angle: %lf\n\n", polarAngle(coordinate[1], coordinate[anchor]));
+
+
+    // check if nasosort based on polar angle 
+    insertionSort(coordinate, anchor, n);
+    printf("sorted coordinates:\n");
+
+    for(int i = 0; i < n; i++)
     {
-        printf("%d ", b[i]);
+        printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
     }
     printf("\n");
+
+
+
+
+    // int a[] = {9, 1, 8, 2, 7, 3, 6, 5, 4};
+    // int b[] = {9, 1, 8, 2, 7, 3, 6, 5, 4};
+
+    
+    // insertionSort(a, 9);
+
+    // for(int i = 0; i < 9; i++)
+    // {
+    //     printf("%d ", a[i]);
+    // }
+    // printf("\n");
+
+    // quickSort(b, 0, 8);
+
+    // for(int i = 0; i < 9; i++)
+    // {
+    //     printf("%d ", b[i]);
+    // }
+    // printf("\n");
 }
+
+// HOW TO COMPILE: gcc -Wall -std=c99 <yourMP.c> -o <output>

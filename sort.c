@@ -24,6 +24,7 @@
 // include your own stack header file
 #include "stack.h"
 #include "stdbool.h"
+#include "math.h"
 
 
 /*
@@ -53,20 +54,81 @@
     f. Parameters: x is the ...    
 */
 
-// sorting still not based on polar angle
+int partition(int a[], int start, int end);
 
-void insertionSort(int a[], int n) 
+
+
+
+
+
+
+
+
+int findAnchorPoint(Point points[], int n) {
+    int index = 0; // track index of lowest point
+    int i;
+
+    // find lowest y coor
+    for (i = 1; i < n; i++) {
+        if (points[i].y < points[index].y) 
+        {
+            index = i;
+        }
+        else if (points[i].y == points[index].y) //if may y na equal, compare x coor
+        {  
+            if (points[i].x < points[index].x) 
+            {
+                index = i;
+            }
+        }
+    }
+    return index;
+}
+
+double polarAngle(Point a, Point anchor)
+{
+    double dx;
+    double dy;
+
+    dx = a.x - anchor.x;
+    dy = a.y - anchor.y;
+
+    return atan2(dy, dx);
+}
+
+void swapPoint(Point *a, Point *b)
+{
+    Point temp;
+
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void swapPointArray(Point coordinate[], int i, int j)
+{
+    Point temp;
+
+    temp = coordinate[i];
+    coordinate[i] = coordinate[j];
+    coordinate[j] = temp;
+}
+
+
+
+// sorting still not based on polar angle
+void insertionSort(Point a[], int anchor, int n) 
 {
     int i;
     int j;
-    int temp;
+    Point temp;
 
     for(i = 1; i < n; i++)
     {
         temp = a[i]; // store the index ur currently sorting to in temp
         j = i - 1; // left side of the index ur currently sorting
 
-        while(j >= 0 && a[j] > temp) //while the left side is bigger than the index ur currently sorting
+        while(j >= 0 && polarAngle(a[j], a[anchor]) > polarAngle(temp, a[anchor])) //while the left side is bigger than the index ur currently sorting
         {
             a[j + 1] = a[j]; // shift the left side to right 
             j--; // decrement
