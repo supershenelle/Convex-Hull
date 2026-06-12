@@ -54,7 +54,7 @@
     f. Parameters: x is the ...    
 */
 
-int partition(int a[], int start, int end);
+int partition(Point a[], int start, int end, int anchor);
 
 
 
@@ -154,22 +154,21 @@ void insertionSort(Point a[], int anchor, int n)
     }
 }
 
-void quickSort(int a[], int start, int end)
+void quickSort(Point a[], int start, int end, int anchor)
 {
     int pivot; // location of pivot
 
     if(end <= start) return; // base case
 
-    pivot = partition( a, start, end); // sort array to find pivot
-    quickSort(a, start, pivot - 1); // left partition
-    quickSort(a, pivot + 1, end);  // right partition
-      
+    pivot = partition(a, start, end, anchor); // sort array to find pivot
+    quickSort(a, start, pivot - 1, anchor); // left partition
+    quickSort(a, pivot + 1, end, anchor);  // right partition
 }
 
 //helper function for quicksort
-int partition(int a[], int start, int end)
+int partition(Point a[], int start, int end, int anchor)
 {
-    int pivot; //for this variation, pivot will always be at the end
+    Point pivot; //for this variation, pivot will always be at the end
     int i;
     int j;
 
@@ -179,7 +178,8 @@ int partition(int a[], int start, int end)
 
     for(j = start; j <= end - 1; j++)
     {
-         if(a[j] < pivot) // 
+         if(polarAngle(a[j], a[anchor]) < polarAngle(pivot, a[anchor]) || 
+             ( polarAngle(a[j], a[anchor]) == polarAngle(pivot, a[anchor]) && distance(a[j], a[anchor]) < distance(pivot, a[anchor]) ) ) 
          {
             i++;
             // swap

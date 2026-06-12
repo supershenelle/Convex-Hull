@@ -60,18 +60,30 @@ int main(){
     printf("polar angle: %lf\n\n", polarAngle(coordinate[1], coordinate[anchor]));
 
 
-    // check if nasosort based on polar angle 
-    insertionSort(coordinate, anchor, n);
-    printf("sorted coordinates:\n");
+    // INSERTION SORT
+    // insertionSort(coordinate, anchor, n);
+    // printf("sorted coordinates(insertion sort):\n");
 
-    for(int i = 0; i < n; i++)
-    {
-        printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
-    }
-    printf("\n");
+    // for(int i = 0; i < n; i++)
+    // {
+    //     printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
+    // }
+    // printf("\n");
 
+//-------------------------------------------------------------------------
 
+    // QUICK SORT 
+    // quickSort(coordinate, 1, n - 1, anchor);
 
+    // printf("sorted coordinates(quick sort):\n");
+
+    // for(int i = 0; i < n; i++)
+    // {
+    //     printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
+    // }
+    // printf("\n");
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // int a[] = {9, 1, 8, 2, 7, 3, 6, 5, 4};
     // int b[] = {9, 1, 8, 2, 7, 3, 6, 5, 4};
