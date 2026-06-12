@@ -143,8 +143,9 @@ void insertionSort(Point a[], int anchor, int n)
         temp = a[i]; // store the index ur currently sorting to in temp
         j = i - 1; // left side of the index ur currently sorting
 
+        //while the left side is bigger than the index ur currently sorting
         while(j >= 1 && polarAngle(a[j], a[anchor]) > polarAngle(temp, a[anchor]) || 
-             ( polarAngle(a[j], a[anchor]) == polarAngle(temp, a[anchor]) && distance(a[j], a[anchor]) > distance(temp, a[anchor]) ) )      //while the left side is bigger than the index ur currently sorting
+             ( polarAngle(a[j], a[anchor]) == polarAngle(temp, a[anchor]) && distance(a[j], a[anchor]) > distance(temp, a[anchor]) ) ) 
         {
             a[j + 1] = a[j]; // shift the left side to right 
             j--; // decrement
