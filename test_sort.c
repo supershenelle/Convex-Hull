@@ -61,14 +61,14 @@ int main(){
 
 
     // INSERTION SORT
-    // insertionSort(coordinate, anchor, n);
-    // printf("sorted coordinates(insertion sort):\n");
+    insertionSort(coordinate, anchor, n);
+    printf("sorted coordinates(insertion sort):\n");
 
-    // for(int i = 0; i < n; i++)
-    // {
-    //     printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
-    // }
-    // printf("\n");
+    for(int i = 0; i < n; i++)
+    {
+        printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
+    }
+    printf("\n");
 
 //-------------------------------------------------------------------------
 
