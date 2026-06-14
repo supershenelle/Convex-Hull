@@ -43,7 +43,7 @@ typedef struct {
 } Point;
 
 typedef struct {
-    Point coords[STACK_SIZE+1];
+    Point points[STACK_SIZE+1];
     int top;
 } Stack;
 

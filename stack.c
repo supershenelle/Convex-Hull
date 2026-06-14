@@ -48,15 +48,27 @@
     a. Name of Programmer(s):  Shenelle Andrea Nono
     b. Name of Tester(s)    :  
     c. Code Type -- 100% Human Generated 
-    d. Purpose: this function will ....
+    d. Purpose: This function initializes the stack by setting the top value to 0. 
+                It is used to create an empty stack
     e. Return: None
-    f. Parameters: x is the ...    
+    f. Parameters: Stack *stack - a pointer to the stack that will be initialized
 */
 void CREATE(Stack *stack)
 {
     stack->top = 0; // initialize top value to 0
 }
 
+/*
+    a. Name of Programmer(s):  Shenelle Andrea Nono
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: This function adds an element to the top of the stack. 
+                It first checks if the stack is full, and if not, it increments the top value 
+                and stores the element at the new top index.
+    e. Return: None
+    f. Parameters: Stack *stack - a pointer to the stack where the element will be added
+                   Point elem - the element that will be added to the stack
+*/
 void PUSH(Stack *stack, Point elem)
 {
     int x;
@@ -67,10 +79,20 @@ void PUSH(Stack *stack, Point elem)
     else
     {
         stack->top++; // increment top to 1
-        stack->coords[stack->top] = elem; // store elem in 1
+        stack->points[stack->top] = elem; // store elem in 1
     }
 }
 
+/*
+    a. Name of Programmer(s):  Shenelle Andrea Nono
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: This function removes and returns the top element of the stack. 
+                It first checks if the stack is empty, and if not, it stores the top element in a 
+                temporary variable and decrements the top value then returns the popped element.
+    e. Return: Point - the element that was removed from the top of the stack
+    f. Parameters: Stack *stack - a pointer to the stack from which the element will be removed
+*/
 Point POP(Stack *stack)
 {
     Point temp; // temp that will store pop value
@@ -79,12 +101,21 @@ Point POP(Stack *stack)
 		printf("Error: Stack Underflow Error!\n");
 	
 	else
-        temp = stack->coords[stack->top];
+        temp = stack->points[stack->top];
 		stack->top--; // decrement top
 	
     return temp; // return popped value
 }
 
+/*
+    a. Name of Programmer(s):  Shenelle Andrea Nono
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: This function checks if the stack is full by comparing the top value with 
+                the defined STACK_SIZE. 
+    e. Return: bool - true if the stack is full, false otherwise
+    f. Parameters: Stack *stack - a pointer to the stack that will be checked if full
+*/
 bool ISFULL(Stack *stack)
 {
 	if (stack->top == STACK_SIZE)
@@ -94,6 +125,14 @@ bool ISFULL(Stack *stack)
         return false;
 }
 
+/*
+    a. Name of Programmer(s):  Shenelle Andrea Nono
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: This function checks if the stack is empty by comparing the top value with 0.
+    e. Return: bool - true if the stack is empty, false otherwise
+    f. Parameters: Stack *stack - a pointer to the stack that will be checked if empty
+*/
 bool ISEMPTY(Stack *stack)
 {
     if (stack->top == 0)
@@ -103,22 +142,39 @@ bool ISEMPTY(Stack *stack)
         return false;
 }
 
+/*
+    a. Name of Programmer(s):  Shenelle Andrea Nono
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: This function returns the top element of the stack without removing it. 
+                It first checks if the stack is empty, and if not, it returns the element at the top index.
+    e. Return: Point - the top element of the stack
+    f. Parameters: Stack *stack - a pointer to the stack that will be checked for the top element
+*/
 Point TOP(Stack *stack)
 {
     if (stack->top == 0)
         printf("Error: Stack is empty\n");
     
     else
-    return stack->coords[stack->top];
+    return stack->points[stack->top];
 }
 
+/*
+    a. Name of Programmer(s):  Shenelle Andrea Nono
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: This function returns the next to top element of the stack without removing it. 
+                It first checks if the stack has at least two elements, and if not, it prints an error message. 
+                If there are at least two elements, it returns the element at the index one less than the top index. 
+    e. Return: Point - the next to top element of the stack
+    f. Parameters: Stack *stack - a pointer to the stack that will be checked for the next to top element
+*/
 Point NEXT_TO_TOP(Stack *stack)
 {
     if (stack->top < 2)
         printf("Error: Need at least two elements in the stack\n");
     
     else
-    return stack->coords[(stack->top)-1];
+    return stack->points[(stack->top)-1];
 }
-
-// test notes: implement test-stack.c, verify if no bugs
