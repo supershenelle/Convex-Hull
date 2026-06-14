@@ -24,6 +24,7 @@
 // include your own stack header file
 #include "stack.h"
 #include "stdbool.h"
+#include "math.h"
 
 
 /*
@@ -53,20 +54,89 @@
     f. Parameters: x is the ...    
 */
 
-// sorting still not based on polar angle
+int partition(Point a[], int start, int end, int anchor);
 
-void insertionSort(int a[], int n) 
+
+
+
+
+
+
+
+// find the anchor point (lowest y coor, if tie lowest x coor)
+int findAnchorPoint(Point points[], int n) {
+    int index = 0; // track index of lowest point
+    int i;
+
+    // find lowest y coor
+    for (i = 1; i < n; i++) {
+        if (points[i].y < points[index].y) 
+        {
+            index = i;
+        }
+        else if (points[i].y == points[index].y) //if may y na equal, compare x coor
+        {  
+            if (points[i].x < points[index].x) 
+            {
+                index = i;
+            }
+        }
+    }
+    return index;
+}
+
+// get polar angle between two points
+double polarAngle(Point a, Point b)
+{
+    double dx;
+    double dy;
+
+    dx = a.x - b.x;
+    dy = a.y - b.y;
+
+    return atan2(dy, dx);
+}
+
+// get distance between two points
+double distance(Point a, Point b)
+{
+    double dx;
+    double dy;
+
+    dx = a.x - b.x;
+    dy = a.y - b.y;
+
+    return sqrt(dx * dx + dy * dy);
+}
+
+
+//swap points pero array
+void swapPointArray(Point coordinate[], int i, int j)
+{
+    Point temp;
+
+    temp = coordinate[i];
+    coordinate[i] = coordinate[j];
+    coordinate[j] = temp;
+}
+
+
+
+// shift all indexes to +1 kasi nakastore na yung anchor sa index 0
+void insertionSort(Point a[], int anchor, int n) 
 {
     int i;
     int j;
-    int temp;
+    Point temp;
 
-    for(i = 1; i < n; i++)
+    for(i = 2; i < n; i++)
     {
         temp = a[i]; // store the index ur currently sorting to in temp
         j = i - 1; // left side of the index ur currently sorting
 
-        while(j >= 0 && a[j] > temp) //while the left side is bigger than the index ur currently sorting
+        //while the left side is bigger than the index ur currently sorting
+        while(j >= 1 && (polarAngle(a[j], a[anchor]) > polarAngle(temp, a[anchor]) || 
+             ( polarAngle(a[j], a[anchor]) == polarAngle(temp, a[anchor]) && distance(a[j], a[anchor]) > distance(temp, a[anchor]) ) ) ) 
         {
             a[j + 1] = a[j]; // shift the left side to right 
             j--; // decrement
@@ -75,44 +145,41 @@ void insertionSort(int a[], int n)
     }
 }
 
-void quickSort(int a[], int start, int end)
+void quickSort(Point a[], int start, int end, int anchor)
 {
+    int pivot; // location of pivot
+
     if(end <= start) return; // base case
 
-    int pivot = partition( a, start, end); // sort array to find pivot
-    quickSort(a, start, pivot - 1); // left partition
-    quickSort(a, pivot + 1, end);  // right partition
-      
+    pivot = partition(a, start, end, anchor); // sort array to find pivot
+    quickSort(a, start, pivot - 1, anchor); // left partition
+    quickSort(a, pivot + 1, end, anchor);  // right partition
 }
 
 //helper function for quicksort
-int partition(int a[], int start, int end)
+int partition(Point a[], int start, int end, int anchor)
 {
-    int pivot; //for this variation, pivot will always be at the end
+    Point pivot; //for this variation, pivot will always be at the end
     int i;
     int j;
-    int temp;
 
 
     pivot = a[end];
     i = start - 1;
 
-    for(int j = start; j <= end - 1; j++)
+    for(j = start; j <= end - 1; j++)
     {
-         if(a[j] < pivot) // 
+         if(polarAngle(a[j], a[anchor]) < polarAngle(pivot, a[anchor]) || 
+             ( polarAngle(a[j], a[anchor]) == polarAngle(pivot, a[anchor]) && distance(a[j], a[anchor]) < distance(pivot, a[anchor]) ) ) 
          {
             i++;
             // swap
-            temp = a[i];
-            a[i] = a[j];
-            a[j] = temp;
+            swapPointArray(a, i, j);
          }
     }
     i++;
  
-    temp = a[i];
-    a[i] = a[end];
-    a[end] = temp;
+    swapPointArray(a, i, end);
      
     return i; //location of pivot  
       
