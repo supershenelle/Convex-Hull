@@ -62,7 +62,7 @@ void PUSH(Stack *stack, Point elem)
     int x;
 
     if (ISFULL(stack))
-        printf("Stack Overflow Error!\n");
+        printf("Error: Stack Overflow Error!\n");
     
     else
     {
@@ -76,7 +76,7 @@ Point POP(Stack *stack)
     Point temp; // temp that will store pop value
 
 	if (stack->top == 0)
-		printf("Stack Underflow Error!\n");
+		printf("Error: Stack Underflow Error!\n");
 	
 	else
         temp = stack->coords[stack->top];
@@ -105,11 +105,19 @@ bool ISEMPTY(Stack *stack)
 
 Point TOP(Stack *stack)
 {
+    if (stack->top == 0)
+        printf("Error: Stack is empty\n");
+    
+    else
     return stack->coords[stack->top];
 }
 
 Point NEXT_TO_TOP(Stack *stack)
 {
+    if (stack->top < 2)
+        printf("Error: Need at least two elements in the stack\n");
+    
+    else
     return stack->coords[(stack->top)-1];
 }
 
