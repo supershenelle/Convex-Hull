@@ -45,14 +45,7 @@
 */
 
 
-/*
-    a. Name of Programmer(s):  Shenelle Andrea Nono
-    b. Name of Tester(s)    :  
-    c. Code Type -- 100% Human Generated 
-    d. Purpose: this function will ....
-    e. Return: None
-    f. Parameters: x is the ...    
-*/
+
 
 int partition(Point a[], int start, int end, int anchor);
 
@@ -62,8 +55,14 @@ int partition(Point a[], int start, int end, int anchor);
 
 
 
-
-// find the anchor point (lowest y coor, if tie lowest x coor)
+/*
+    a. Name of Programmer(s):  Mavrick De Guzman
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: this function will find the index of the anchor point, which is the lowest point.
+    e. Return: int - index of anchor point.
+    f. Parameters: Point points[] - array of points, int n - number of points in the array
+*/
 int findAnchorPoint(Point points[], int n) {
     int index = 0; // track index of lowest point
     int i;
@@ -85,7 +84,14 @@ int findAnchorPoint(Point points[], int n) {
     return index;
 }
 
-// get polar angle between two points
+/*
+    a. Name of Programmer(s):  Mavrick De Guzman
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: this function will return the polar angle between two points.
+    e. Return: double - polar angle between the two points
+    f. Parameters: Point a - is a point , Point b - is another point
+*/
 double polarAngle(Point a, Point b)
 {
     double dx;
@@ -97,7 +103,14 @@ double polarAngle(Point a, Point b)
     return atan2(dy, dx);
 }
 
-// get distance between two points
+/*
+    a. Name of Programmer(s):  Mavrick De Guzman
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: this function will return the distance between two points
+    e. Return: double - distance between the two points
+    f. Parameters: Point a - is a point , Point b - is another point
+*/
 double distance(Point a, Point b)
 {
     double dx;
@@ -110,7 +123,14 @@ double distance(Point a, Point b)
 }
 
 
-//swap points pero array
+/*
+    a. Name of Programmer(s):  Mavrick De Guzman
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: this function will swap two points in an array
+    e. Return: NONE
+    f. Parameters: Point coordinate[] - is an array of points, int i and int j - index of the points you want to switch
+*/
 void swapPointArray(Point coordinate[], int i, int j)
 {
     Point temp;
@@ -122,6 +142,14 @@ void swapPointArray(Point coordinate[], int i, int j)
 
 
 
+/*
+    a. Name of Programmer(s):  Mavrick De Guzman
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: This function sorts the array using insertion sort based on the polar angles by each point with the anchor point.
+    e. Return: NONE
+    f. Parameters: Point a[] - is an array of points, int anchor - contains the index of the anchor, int n - number of points in the array
+*/
 // shift all indexes to +1 kasi nakastore na yung anchor sa index 0
 void insertionSort(Point a[], int anchor, int n) 
 {
@@ -145,6 +173,15 @@ void insertionSort(Point a[], int anchor, int n)
     }
 }
 
+/*
+    a. Name of Programmer(s):  Mavrick De Guzman
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: This function sorts the array using quick sort based on the polar angles by each point with the anchor point.
+    e. Return: NONE
+    f. Parameters: Point a[] - is an array of points, int start - contains index where sorting of the array starts,
+                   int end - contains index where sorting of the array ends,  int anchor - contains the index of the anchor
+*/
 void quickSort(Point a[], int start, int end, int anchor)
 {
     int pivot; // location of pivot
@@ -156,6 +193,15 @@ void quickSort(Point a[], int start, int end, int anchor)
     quickSort(a, pivot + 1, end, anchor);  // right partition
 }
 
+/*
+    a. Name of Programmer(s):  Mavrick De Guzman
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: partitions the array of points for quick sort. selects the last element as pivot.
+    e. Return: int - index of pivot after partition.
+    f. Parameters: Point a[] - is an array of points, int start - contains index where sorting of the array starts,
+                               int end - contains index where sorting of the array ends,  int anchor - contains the index of the anchor
+*/
 //helper function for quicksort
 int partition(Point a[], int start, int end, int anchor)
 {

@@ -23,7 +23,7 @@
 int main(){
 
     FILE *fp;
-    Point coordinate[100];
+    Point coordinate[100]; // DONT FORGET TO CHANGE SIZE
     int n; //number of points sa file
     int anchor;
 
@@ -70,18 +70,18 @@ int main(){
     }
     printf("\n");
 
-//-------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
     // QUICK SORT 
-    // quickSort(coordinate, 1, n - 1, anchor);
+    quickSort(coordinate, 1, n - 1, anchor);
 
-    // printf("sorted coordinates(quick sort):\n");
+    printf("sorted coordinates(quick sort):\n");
 
-    // for(int i = 0; i < n; i++)
-    // {
-    //     printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
-    // }
-    // printf("\n");
+    for(int i = 0; i < n; i++)
+    {
+        printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
+    }
+    printf("\n");
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
