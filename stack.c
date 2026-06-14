@@ -2,11 +2,11 @@
 
     >> Encode your group number (2 digits) and last names, first names and sections of group members.  Encode the purpose of this file.
 
-    Group #: 00  (2 digits)
+    Group #: 06  (2 digits)
 
-    LASTNAME1, FIRSTNAME1  SECTION
-    LASTNAME2, FIRSTNAME2  SECTION
-    LASTNAME3, FIRSTNAME3  SECTION 
+    DE GUZMAN, MAVRICK L.    S09
+    NONO, SHENELLE ANDREA G. S09
+    YATCO, MARCO ALFREDO D.  S09 
 
     PURPOSE OF THIS FILE: to show an example of a C source file that follows the coding guidelines/instructions.
 
