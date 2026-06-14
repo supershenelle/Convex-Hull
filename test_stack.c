@@ -20,85 +20,7 @@
 
 // include your own stack C source file
 #include "stack.c"
-
-/*
-=========================================================
-STACK MODULE TEST CASES
-=========================================================
-
-+----+----------------------------------+--------------------------+----------------------+
-| TC | Operation                        | Expected Result          | Expected Output      |
-+----+----------------------------------+--------------------------+----------------------+
-| 1  | CREATE(S)                        | Stack created            | Stack is empty       |
-|    | ISEMPTY(S)                       | Returns 1 (true)         | Empty = 1            |
-+----+----------------------------------+--------------------------+----------------------+
-| 2  | PUSH(S, 10)                      | 10 added to stack        | Top = 10             |
-|    | TOP(S)                           | Returns 10              | Top = 10             |
-+----+----------------------------------+--------------------------+----------------------+
-| 3  | PUSH(S, 20)                      | 20 added to stack        | Top = 20             |
-|    | PUSH(S, 30)                      | 30 added to stack        | Top = 30             |
-|    | TOP(S)                           | Returns 30              | Top = 30             |
-+----+----------------------------------+--------------------------+----------------------+
-| 4  | NEXT_TO_TOP(S)                   | Returns 20              | Next-to-top = 20     |
-+----+----------------------------------+--------------------------+----------------------+
-| 5  | POP(S)                           | Removes and returns 30   | Popped = 30          |
-|    | TOP(S)                           | Returns 20              | Top = 20             |
-+----+----------------------------------+--------------------------+----------------------+
-| 6  | POP(S)                           | Removes 20              | Popped = 20          |
-|    | POP(S)                           | Removes 10              | Popped = 10          |
-|    | ISEMPTY(S)                       | Returns 1 (true)         | Empty = 1            |
-+----+----------------------------------+--------------------------+----------------------+
-| 7  | POP(S) on empty stack            | Underflow error          | Error message        |
-+----+----------------------------------+--------------------------+----------------------+
-| 8  | TOP(S) on empty stack            | Invalid operation        | Error message        |
-+----+----------------------------------+--------------------------+----------------------+
-| 9  | PUSH(S, 10)                      | One element in stack     | Top = 10             |
-|    | NEXT_TO_TOP(S)                   | Not enough elements      | Error message        |
-+----+----------------------------------+--------------------------+----------------------+
-|10  | Fill stack with 32768 elements   | Stack becomes full       | ISFULL = 1           |
-+----+----------------------------------+--------------------------+----------------------+
-|11  | PUSH(S, 999) when full           | Overflow error           | Error message        |
-+----+----------------------------------+--------------------------+----------------------+
-
-Sample Expected Console Output:
-
-Test 1: Create Stack
-Empty = 1
-
-Test 2: Push 10
-Top = 10
-
-Test 3: Push 20, 30
-Top = 30
-
-Test 4: Next-to-top
-Next-to-top = 20
-
-Test 5: Pop
-Popped = 30
-Top = 20
-
-Test 6: Empty Stack
-Popped = 20
-Popped = 10
-Empty = 1
-
-Test 7: Underflow
-Error: Stack is empty
-
-Test 8: TOP on Empty Stack
-Error: Stack is empty
-
-Test 9: NEXT_TO_TOP with One Element
-Error: Need at least two elements
-
-Test 10: Fill Stack
-ISFULL = 1
-
-Test 11: Overflow
-Error: Stack is full
-=========================================================
-*/
+#include "stdbool.h"
 
 int main()
 {
@@ -162,7 +84,7 @@ int main()
     printf("\nTest 5 : ISEMPTY (pop 10)\n");
     test = POP(&s);
     if (test.x == p1.x && ISEMPTY(&s))
-        printf("Pop = %f\nIs Empty = %d\n", test.x, ISEMPTY(&s));
+        printf("Pop = %f\nIs Empty = %s\n", test.x, ISEMPTY(&s) ? "TRUE" : "FALSE");
     else
         printf("Is Empty = FAILED\n");
 
