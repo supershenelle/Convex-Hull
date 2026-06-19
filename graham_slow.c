@@ -76,7 +76,7 @@ Stack grahamSlow(Point point[], int n)
 
     for(i=3; i<n; i++)
     {
-        while(orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])!=2)
+        while(S.top >= 1 && orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])!=2)
             POP(&S);
 
         PUSH(&S,point[i]);

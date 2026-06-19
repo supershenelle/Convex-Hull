@@ -17,6 +17,9 @@
     4. Do NOT use return in a void function!
 
 */
+
+//type gcc -Wall test_slow.c graham_slow.c sort.c stack.c -o test_slow -lm
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -24,7 +27,7 @@
 // include your own stack header file
 #include "stack.h"
 #include "sort.h"
-// #include "graham_slow.c"
+#include "graham_slow.h"
 
 #define LIMIT 32768
 
@@ -43,11 +46,17 @@ int main()
     int m = 0;
 
     printf("Enter your input filename: ");
-    scanf("%20s",inputFile);
+    scanf("%30s",inputFile);
     printf("Enter your output filename: ");
-    scanf(" %20s",outputFile);
+    scanf(" %30s",outputFile);
 
     fp = fopen(inputFile, "r");
+
+    if(fp == NULL)
+    {
+        printf("Invalid Text File!");
+        return 1;
+    }
 
     fscanf(fp, "%d", &n);
     for (i = 0; i < n; i++) { 
@@ -59,6 +68,12 @@ int main()
     S = grahamSlow(initialPoints, n);
 
     fp = fopen(outputFile, "w");
+
+    if(fp == NULL)
+    {
+        printf("Invalid Text File!");
+        return 1;
+    }
     
     while(!ISEMPTY(&S))
     {
