@@ -32,3 +32,10 @@
 #include <stdlib.h>
 
 // you may include other header files
+int findAnchorPoint(Point points[], int n);
+double polarAngle(Point a, Point b);
+double distance(Point a, Point b);
+void swapPointArray(Point coordinate[], int i, int j);
+void insertionSort(Point a[], int anchor, int n);
+void quickSort(Point a[], int start, int end, int anchor);
+int partition(Point a[], int start, int end, int anchor);
