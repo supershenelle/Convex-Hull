@@ -23,7 +23,7 @@
 
 // include your own stack header file
 #include "stack.h"
-#include "sort.c"
+#include "sort.h"
 
 /*
     a. Name of Programmer(s):  Marco Yatco

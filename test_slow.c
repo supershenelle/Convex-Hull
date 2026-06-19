@@ -17,15 +17,17 @@
     4. Do NOT use return in a void function!
 
 */
+
+//type gcc -Wall test_slow.c graham_slow.c sort.c stack.c -o test_slow -lm
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 // include your own stack header file
 #include "stack.h"
-#include "sort.c"
-#include "graham_slow.c"
-#endif
+#include "sort.h"
+#include "graham_slow.h"
 
 #define LIMIT 32768
 

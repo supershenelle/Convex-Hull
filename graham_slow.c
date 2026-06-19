@@ -23,7 +23,7 @@
 
 // include your own stack header file
 #include "stack.h"
-#include "sort.c"
+#include "sort.h"
 
 /*
     a. Name of Programmer(s):  Marco Yatco
@@ -38,7 +38,7 @@ int orientation(Point p, Point q, Point r)
     double value;
     value = (q.y - p.y) * (r.x -q.x) - (q.x - p.x) * (r.y -q.y);
 
-    if(value = 0)
+    if(value == 0)
         return 0; //collinear
 
     if(value > 0)
