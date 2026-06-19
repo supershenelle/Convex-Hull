@@ -18,7 +18,7 @@
 
 */
 
-//type gcc -Wall test_slow.c graham_slow.c sort.c stack.c -o test_slow -lm
+//type gcc -Wall test_slow.c graham_slow.c sort.c stack.c -o test_slow.exe -lm
 
 #include <stdio.h>
 #include <stdlib.h>
