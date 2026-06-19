@@ -24,30 +24,54 @@
 // include your own stack header file
 #include "stack.h"
 #include "sort.c"
+#include "graham_slow.c"
+#endif
+
 #define LIMIT 32768
 
-typedef char shortString[21]; //for items 20 characters
+typedef char shortString[31]; //for items 30 characters
 
 int main()
 {
     FILE *fp;
     shortString inputFile, outputFile;
-    Point point[LIMIT];
+    Stack S;
+    Point initialPoints[LIMIT];
+    Point hullPoints[LIMIT];
+    int i,j;
     int n;
+    int m = 0;
     int anchor;
 
     printf("Enter your input filename: ");
-    scanf("%c",inputFile);
+    scanf("%20s",inputFile);
     printf("Enter your output filename: ");
-    scanf(" %c",outputFile);
+    scanf(" %20s",outputFile);
 
-    fp = fopen(inputFile, "r"); //open input file
-    fscanf(fp, "%d", &n);   //read number of points
+    fp = fopen(inputFile, "r");
 
-    //store in array
-    for (int i = 0; i < n; i++) { 
-        fscanf(fp, "%lf %lf", &point[i].x, &point[i].y);  
+    fscanf(fp, "%d", &n);
+    for (i = 0; i < n; i++) { 
+        fscanf(fp, "%lf %lf", &initialPoints[i].x, &initialPoints[i].y);  
+    }
+    
+    fclose(fp);
+
+    S = grahamSlow(initialPoints, n);
+
+    fp = fopen(outputFile, "w");
+    
+    while(!ISEMPTY(&S))
+    {
+        hullPoints[m++] = TOP(&S);
+        POP(&S);
     }
 
-    // SHEN SHEN PLEASE CONTINUE IM SLEEPY
+    fprintf(fp, "%d\n", m);
+    for (j = m - 1; j >= 0; j--)
+        fprintf(fp, "%.2f %.2f\n", hullPoints[j].x, hullPoints[j].y);
+
+    fclose(fp);
+
+    return 0;
 }

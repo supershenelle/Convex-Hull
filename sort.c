@@ -44,16 +44,7 @@
     Remove the Sample() function in your own C source code.
 */
 
-
-
-
 int partition(Point a[], int start, int end, int anchor);
-
-
-
-
-
-
 
 /*
     a. Name of Programmer(s):  Mavrick De Guzman

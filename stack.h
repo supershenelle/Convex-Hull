@@ -32,9 +32,10 @@
 #include <stdlib.h>
 
 // you may include other header files
-#define SIZE 5 // sample value
-#include "stdbool.h"
+#include <stdbool.h>
 
+#ifndef STACK_H
+#define STACK_H
 #define STACK_SIZE 32768
 
 typedef struct {
@@ -63,3 +64,5 @@ bool isEmpty(int *top);
 double Top(int a[], int *top);
 double nextToTop(int a[], int *top);
 */
+
+#endif
