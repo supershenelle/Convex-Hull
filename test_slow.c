@@ -23,12 +23,12 @@
 
 // include your own stack header file
 #include "stack.h"
-#include "sort.c"
-#include "graham_slow.c"
-#endif
+#include "sort.h"
+// #include "graham_slow.c"
 
 #define LIMIT 32768
 
+Stack grahamSlow(Point points[], int n); 
 typedef char shortString[31]; //for items 30 characters
 
 int main()
@@ -41,7 +41,6 @@ int main()
     int i,j;
     int n;
     int m = 0;
-    int anchor;
 
     printf("Enter your input filename: ");
     scanf("%20s",inputFile);

@@ -72,8 +72,6 @@ int main(){
     }
     printf("\n");
 
--------------------------------------------------------------------------
-
     // QUICK SORT 
     quickSort(coordinate, 1, n - 1, anchor);
 

@@ -23,7 +23,7 @@
 
 // include your own stack header file
 #include "stack.h"
-#include "stdbool.h"
+#include <stdbool.h>
 
 
 /*
@@ -71,8 +71,6 @@ void CREATE(Stack *stack)
 */
 void PUSH(Stack *stack, Point elem)
 {
-    int x;
-
     if (ISFULL(stack))
         printf("Error: Stack Overflow Error!\n");
     
@@ -154,7 +152,12 @@ bool ISEMPTY(Stack *stack)
 Point TOP(Stack *stack)
 {
     if (stack->top == 0)
-        printf("Error: Stack is empty\n");
+    {
+    	printf("Error: Stack is empty\n");
+    	Point invalid = {-1, -1}; // temporary invalid point because if hindi defined, may warning na lalabas sa terminal
+    	return invalid;
+	}
+        
     
     else
     return stack->points[stack->top];
@@ -173,7 +176,11 @@ Point TOP(Stack *stack)
 Point NEXT_TO_TOP(Stack *stack)
 {
     if (stack->top < 2)
-        printf("Error: Need at least two elements in the stack\n");
+    {
+    	printf("Error: Need at least two elements in the stack\n");
+    	Point invalid = {-1, -1}; // temporary invalid point because if hindi defined, may warning na lalabas sa terminal
+    	return invalid;
+	}
     
     else
     return stack->points[(stack->top)-1];
