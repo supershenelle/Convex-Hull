@@ -44,11 +44,17 @@ int main()
     int anchor;
 
     printf("Enter your input filename: ");
-    scanf("%20s",inputFile);
+    scanf("%30s",inputFile);
     printf("Enter your output filename: ");
-    scanf(" %20s",outputFile);
+    scanf(" %30s",outputFile);
 
     fp = fopen(inputFile, "r");
+
+    if(fp == NULL)
+    {
+        printf("Invalid Text File!");
+        return 1;
+    }
 
     fscanf(fp, "%d", &n);
     for (i = 0; i < n; i++) { 
@@ -60,6 +66,12 @@ int main()
     S = grahamSlow(initialPoints, n);
 
     fp = fopen(outputFile, "w");
+
+    if(fp == NULL)
+    {
+        printf("Invalid Text File!");
+        return 1;
+    }
     
     while(!ISEMPTY(&S))
     {

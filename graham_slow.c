@@ -38,7 +38,7 @@ int orientation(Point p, Point q, Point r)
     double value;
     value = (q.y - p.y) * (r.x -q.x) - (q.x - p.x) * (r.y -q.y);
 
-    if(value == 0)
+    if(value = 0)
         return 0; //collinear
 
     if(value > 0)
@@ -76,7 +76,7 @@ Stack grahamSlow(Point point[], int n)
 
     for(i=3; i<n; i++)
     {
-        while(orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])!=2)
+        while(S.top >= 1 && orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])!=2)
             POP(&S);
 
         PUSH(&S,point[i]);
