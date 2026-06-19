@@ -53,10 +53,10 @@ int orientation(Point p, Point q, Point r)
     c. Code Type -- 100% Human Generated 
     d. Purpose: this function computes for the convex hull using the Graham's scan algorithim.
                 this algorithim will be using the quickSort (Fast)
-    e. Return: NONE
+    e. Return: S - Hull points after using the graham scan
     f. Parameters: Point point[] - contains coordinates of points, int n - number of points
 */
-void grahamFast(Point point[], int n)
+Stack grahamFast(Point point[], int n)
 {
     int i;
     int anchor;
@@ -76,7 +76,7 @@ void grahamFast(Point point[], int n)
 
     for(i=3; i<n; i++)
     {
-        while(orientation(NEXT_TO_TOP(S),TOP(S),point[i])!=2)
+        while(orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])!=2)
             POP(&S);
 
         PUSH(&S,point[i]);
@@ -87,4 +87,6 @@ void grahamFast(Point point[], int n)
     totalTime = ((double)(time_end - time_start)/CLOCKS_PER_SEC)*1000;
 
     printf("The Total elapsed time for the fast Graham Scan is : %lf ms", totalTime);
+
+    return S;
 }
