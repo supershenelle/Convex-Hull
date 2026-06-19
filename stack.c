@@ -2,11 +2,11 @@
 
     >> Encode your group number (2 digits) and last names, first names and sections of group members.  Encode the purpose of this file.
 
-    Group #: 00  (2 digits)
+    Group #: 06  (2 digits)
 
-    LASTNAME1, FIRSTNAME1  SECTION
-    LASTNAME2, FIRSTNAME2  SECTION
-    LASTNAME3, FIRSTNAME3  SECTION 
+    DE GUZMAN, MAVRICK L.    S09
+    NONO, SHENELLE ANDREA G. S09
+    YATCO, MARCO ALFREDO D.  S09 
 
     PURPOSE OF THIS FILE: to show an example of a C source file that follows the coding guidelines/instructions.
 
@@ -46,7 +46,7 @@
 
 /*
     a. Name of Programmer(s):  Shenelle Andrea Nono
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Mavrick De Guzman
     c. Code Type -- 100% Human Generated 
     d. Purpose: This function initializes the stack by setting the top value to 0. 
                 It is used to create an empty stack
@@ -60,7 +60,7 @@ void CREATE(Stack *stack)
 
 /*
     a. Name of Programmer(s):  Shenelle Andrea Nono
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Mavrick De Guzman
     c. Code Type -- 100% Human Generated 
     d. Purpose: This function adds an element to the top of the stack. 
                 It first checks if the stack is full, and if not, it increments the top value 
@@ -85,7 +85,7 @@ void PUSH(Stack *stack, Point elem)
 
 /*
     a. Name of Programmer(s):  Shenelle Andrea Nono
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Mavrick De Guzman
     c. Code Type -- 100% Human Generated 
     d. Purpose: This function removes and returns the top element of the stack. 
                 It first checks if the stack is empty, and if not, it stores the top element in a 
@@ -109,7 +109,7 @@ Point POP(Stack *stack)
 
 /*
     a. Name of Programmer(s):  Shenelle Andrea Nono
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Mavrick De Guzman
     c. Code Type -- 100% Human Generated 
     d. Purpose: This function checks if the stack is full by comparing the top value with 
                 the defined STACK_SIZE. 
@@ -127,7 +127,7 @@ bool ISFULL(Stack *stack)
 
 /*
     a. Name of Programmer(s):  Shenelle Andrea Nono
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Mavrick De Guzman
     c. Code Type -- 100% Human Generated 
     d. Purpose: This function checks if the stack is empty by comparing the top value with 0.
     e. Return: bool - true if the stack is empty, false otherwise
@@ -144,7 +144,7 @@ bool ISEMPTY(Stack *stack)
 
 /*
     a. Name of Programmer(s):  Shenelle Andrea Nono
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Mavrick De Guzman
     c. Code Type -- 100% Human Generated 
     d. Purpose: This function returns the top element of the stack without removing it. 
                 It first checks if the stack is empty, and if not, it returns the element at the top index.
@@ -162,7 +162,7 @@ Point TOP(Stack *stack)
 
 /*
     a. Name of Programmer(s):  Shenelle Andrea Nono
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Mavrick De Guzman
     c. Code Type -- 100% Human Generated 
     d. Purpose: This function returns the next to top element of the stack without removing it. 
                 It first checks if the stack has at least two elements, and if not, it prints an error message. 

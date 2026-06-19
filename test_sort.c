@@ -1,19 +1,21 @@
 /**
+
     >> Encode your group number (2 digits) and last names, first names and sections of group members.  Encode the purpose of this file.
 
-    Group #: 00  (2 digits)
+    Group #: 06  (2 digits)
 
-    LASTNAME1, FIRSTNAME1  SECTION
-    LASTNAME2, FIRSTNAME2  SECTION
-    LASTNAME3, FIRSTNAME3  SECTION 
+    DE GUZMAN, MAVRICK L.    S09
+    NONO, SHENELLE ANDREA G. S09
+    YATCO, MARCO ALFREDO D.  S09 
 
-    PURPOSE OF THIS FILE: to show an example of a test driver program.
+    PURPOSE OF THIS FILE: to show an example of a C source file that follows the coding guidelines/instructions.
 
     >> GENERAL INSTRUCTIONS: NON-COMPLIANCE WILL RESULT INTO AT LEAST A 10 POINT DEDUCTION!
     1. Adhere with good programming style and practice (learned from CCPROG1 and CCPROG2).
     2. Do NOT use global variables!  
     3. Do NOT use goto statement!
     4. Do NOT use return in a void function!
+
 */
 #include <stdlib.h>
 
@@ -23,7 +25,7 @@
 int main(){
 
     FILE *fp;
-    Point coordinate[100];
+    Point coordinate[100]; // DONT FORGET TO CHANGE SIZE
     int n; //number of points sa file
     int anchor;
 
@@ -70,18 +72,18 @@ int main(){
     }
     printf("\n");
 
-//-------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
     // QUICK SORT 
-    // quickSort(coordinate, 1, n - 1, anchor);
+    quickSort(coordinate, 1, n - 1, anchor);
 
-    // printf("sorted coordinates(quick sort):\n");
+    printf("sorted coordinates(quick sort):\n");
 
-    // for(int i = 0; i < n; i++)
-    // {
-    //     printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
-    // }
-    // printf("\n");
+    for(int i = 0; i < n; i++)
+    {
+        printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
+    }
+    printf("\n");
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

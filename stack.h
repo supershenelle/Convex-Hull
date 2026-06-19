@@ -4,9 +4,9 @@
 
     Group #: 06 (2 digits)
 
-    LASTNAME1, FIRSTNAME1  SECTION
-    LASTNAME2, FIRSTNAME2  SECTION
-    LASTNAME3, FIRSTNAME3  SECTION 
+    DE GUZMAN, MAVRICK L.    S09
+    NONO, SHENELLE ANDREA G. S09
+    YATCO, MARCO ALFREDO D.  S09 
 
     PURPOSE OF THIS FILE: to show an example of a C header file that follows the coding guidelines/instructions.
 
