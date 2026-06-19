@@ -25,6 +25,7 @@
 #include "stack.h"
 #include "stdbool.h"
 #include "math.h"
+#include "sort.h"
 
 
 /*
@@ -43,16 +44,6 @@
 
     Remove the Sample() function in your own C source code.
 */
-
-
-
-
-int partition(Point a[], int start, int end, int anchor);
-
-
-
-
-
 
 
 /*

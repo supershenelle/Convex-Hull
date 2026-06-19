@@ -31,6 +31,7 @@
 
 #define LIMIT 32768
 
+Stack grahamSlow(Point points[], int n); 
 typedef char shortString[31]; //for items 30 characters
 
 int main()
@@ -43,7 +44,6 @@ int main()
     int i,j;
     int n;
     int m = 0;
-    int anchor;
 
     printf("Enter your input filename: ");
     scanf("%30s",inputFile);
