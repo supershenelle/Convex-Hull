@@ -32,6 +32,9 @@
 #include <stdlib.h>
 
 // you may include other header files
+#include "stack.h"
+
+
 int findAnchorPoint(Point points[], int n);
 double polarAngle(Point a, Point b);
 double distance(Point a, Point b);
