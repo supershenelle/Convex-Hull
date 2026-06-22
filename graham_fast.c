@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 // include your own stack header file
 #include "stack.h"
@@ -68,15 +69,16 @@ Stack grahamFast(Point point[], int n)
     time_start = clock();
 
     anchor = findAnchorPoint(point, n);
+    swapPointArray(point,0,anchor);
+    anchor = 0;
     quickSort(point, 1, n - 1, anchor);
     CREATE(&S);
     PUSH(&S, point[0]);
     PUSH(&S, point[1]);
-    PUSH(&S, point[2]);
 
-    for(i=3; i<n; i++)
+    for(i=2; i<n; i++)
     {
-        while(S.top >= 1 && orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])!=2)
+        while(S.top >= 2 && orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])==1)
             POP(&S);
 
         PUSH(&S,point[i]);
@@ -86,7 +88,7 @@ Stack grahamFast(Point point[], int n)
 
     totalTime = ((double)(time_end - time_start)/CLOCKS_PER_SEC)*1000;
 
-    printf("The Total elapsed time for the fast Graham Scan is : %lf ms", totalTime);
+    printf("The Total elapsed time for the fast Graham Scan is : %lf ms\n", totalTime);
 
     return S;
 }

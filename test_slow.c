@@ -34,6 +34,19 @@
 Stack grahamSlow(Point points[], int n); 
 typedef char shortString[31]; //for items 30 characters
 
+/*
+    a. Name of Programmer(s):  Marco Yatco
+    b. Name of Tester(s)    :  Mavrick De Guzman
+    c. Code Type -- 100% Human Generated
+    d. Purpose: This function serves as the driver program for the Graham Slow
+                Convex Hull algorithm. It reads a set of points from an input
+                file, computes the convex hull using Graham's Scan with Insertion Sort,
+                stores the resulting hull points, writes the hull to an output
+                file, and displays the hull points on the screen.
+    e. Return: int - returns 0 when the program executes successfully and
+                      returns 1 when an input or output file cannot be opened.
+    f. Parameters: None
+*/
 int main()
 {
     FILE *fp;
@@ -83,9 +96,15 @@ int main()
 
     fprintf(fp, "%d\n", m);
     for (j = m - 1; j >= 0; j--)
-        fprintf(fp, "%.2f %.2f\n", hullPoints[j].x, hullPoints[j].y);
+        fprintf(fp, "%9lf  %9lf\n", hullPoints[j].x, hullPoints[j].y);
 
     fclose(fp);
+
+     for(i = 0; i<m; i++)
+    {
+        printf("(%lf, %lf)\n", hullPoints[i].x, hullPoints[i].y);
+        printf("\n");
+    }
 
     return 0;
 }

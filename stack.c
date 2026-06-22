@@ -80,8 +80,10 @@ Point POP(Stack *stack)
 		printf("Error: Stack Underflow Error!\n");
 	
 	else
+        {
         temp = stack->points[stack->top];
 		stack->top--; // decrement top
+        }
 	
     return temp; // return popped value
 }
