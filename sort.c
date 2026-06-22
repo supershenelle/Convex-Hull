@@ -20,11 +20,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
 
 // include your own stack header file
 #include "stack.h"
-#include "stdbool.h"
-#include "math.h"
 #include "sort.h"
 
 
@@ -116,7 +116,7 @@ double distance(Point a, Point b)
 
 /*
     a. Name of Programmer(s):  Mavrick De Guzman
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Shenelle Andrea Nono
     c. Code Type -- 100% Human Generated 
     d. Purpose: this function will swap two points in an array
     e. Return: NONE
@@ -154,8 +154,12 @@ void insertionSort(Point a[], int anchor, int n)
         j = i - 1; // left side of the index ur currently sorting
 
         //while the left side is bigger than the index ur currently sorting
-        while(j >= 1 && (polarAngle(a[j], a[anchor]) > polarAngle(temp, a[anchor]) || 
-             ( polarAngle(a[j], a[anchor]) == polarAngle(temp, a[anchor]) && distance(a[j], a[anchor]) > distance(temp, a[anchor]) ) ) ) 
+        // while(j >= 1 && (polarAngle(a[j], a[anchor]) > polarAngle(temp, a[anchor]) || 
+        //      ( polarAngle(a[j], a[anchor]) == polarAngle(temp, a[anchor]) && distance(a[j], a[anchor]) > distance(temp, a[anchor]) ) ) ) 
+        while (j >= 1 &&
+      (orientation(a[anchor], temp, a[j]) == 2 ||
+      (orientation(a[anchor], temp, a[j]) == 0 &&
+       distance(a[j], a[anchor]) > distance(temp, a[anchor]))))
         {
             a[j + 1] = a[j]; // shift the left side to right 
             j--; // decrement
@@ -193,6 +197,7 @@ void quickSort(Point a[], int start, int end, int anchor)
     f. Parameters: Point a[] - is an array of points, int start - contains index where sorting of the array starts,
                                int end - contains index where sorting of the array ends,  int anchor - contains the index of the anchor
 */
+
 //helper function for quicksort
 int partition(Point a[], int start, int end, int anchor)
 {
@@ -206,8 +211,11 @@ int partition(Point a[], int start, int end, int anchor)
 
     for(j = start; j <= end - 1; j++)
     {
-         if(polarAngle(a[j], a[anchor]) < polarAngle(pivot, a[anchor]) || 
-             ( polarAngle(a[j], a[anchor]) == polarAngle(pivot, a[anchor]) && distance(a[j], a[anchor]) < distance(pivot, a[anchor]) ) ) 
+        if (orientation(a[anchor], a[j], pivot) == 2 ||
+            (orientation(a[anchor], a[j], pivot) == 0 &&
+            distance(a[j], a[anchor]) < distance(pivot, a[anchor])))
+        //  if(polarAngle(a[j], a[anchor]) < polarAngle(pivot, a[anchor]) || 
+        //      (polarAngle(a[j], a[anchor]) == polarAngle(pivot, a[anchor]) && distance(a[j], a[anchor]) < distance(pivot, a[anchor]) ) ) 
          {
             i++;
             // swap
@@ -220,4 +228,27 @@ int partition(Point a[], int start, int end, int anchor)
      
     return i; //location of pivot  
       
+}
+
+/*
+    a. Name of Programmer(s):  Marco Yatco
+    b. Name of Tester(s)    :  
+    c. Code Type -- 100% Human Generated 
+    d. Purpose: this function will determine the direction formed by the points
+    e. Return: int - 0 if collinear, 1 if clockwise, 2 if counterclockwise
+    f. Parameters: Point p - is the first point , Point q - is the second point, Point r - is the third point
+*/
+int orientation(Point p, Point q, Point r)
+{
+    double value;
+    value = (q.x - p.x) * (r.y - p.y) - (q.y - p.y) * (r.x - p.x);
+
+    //if(value == 0)
+    if(fabs(value) < 1e-9) //used to check approximate
+        return 0; //collinear
+
+    if(value > 0)
+        return 2; //counterclockwise
+
+    return 1; //clockwise
 }

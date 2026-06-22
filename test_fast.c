@@ -83,9 +83,15 @@ int main()
 
     fprintf(fp, "%d\n", m);
     for (j = m - 1; j >= 0; j--)
-        fprintf(fp, "%.2f %.2f\n", hullPoints[j].x, hullPoints[j].y);
+        fprintf(fp, "%9lf  %9lf\n", hullPoints[j].x, hullPoints[j].y);
 
     fclose(fp);
 
+    for(i = 0; i<m; i++)
+    {
+        printf("(%lf, %lf)\n", hullPoints[i].x, hullPoints[i].y);
+        printf("\n");
+    }
+    
     return 0;
 }

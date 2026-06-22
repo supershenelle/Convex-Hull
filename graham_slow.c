@@ -30,29 +30,6 @@
     a. Name of Programmer(s):  Marco Yatco
     b. Name of Tester(s)    :  
     c. Code Type -- 100% Human Generated 
-    d. Purpose: this function will determine the direction formed by the points
-    e. Return: int - 0 if collinear, 1 if clockwise, 2 if counterclockwise
-    f. Parameters: Point p - is the first point , Point q - is the second point, Point r - is the third point
-*/
-int orientation(Point p, Point q, Point r)
-{
-    double value;
-    value = (q.y - p.y) * (r.x -q.x) - (q.x - p.x) * (r.y -q.y);
-
-    //if(value == 0)
-    if(fabs(value) < 1e-9) //used to check approximate
-        return 0; //collinear
-
-    if(value > 0)
-        return 1; //clockwise
-
-    return 2; //counterclockwise
-}
-
-/*
-    a. Name of Programmer(s):  Marco Yatco
-    b. Name of Tester(s)    :  
-    c. Code Type -- 100% Human Generated 
     d. Purpose: this function computes for the convex hull using the Graham's scan algorithim.
                 this algorithim will be using the insertionSort (Slow)
     e. Return: S - Hull points after using the graham scan
@@ -76,9 +53,8 @@ Stack grahamSlow(Point point[], int n)
     CREATE(&S);
     PUSH(&S, point[0]);
     PUSH(&S, point[1]);
-    PUSH(&S, point[2]);
 
-    for(i=3; i<n; i++)
+    for(i=2; i<n; i++)
     {
         while(S.top >= 2 && orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])!=2)
             POP(&S);
@@ -90,7 +66,7 @@ Stack grahamSlow(Point point[], int n)
 
     totalTime = ((double)(time_end - time_start)/CLOCKS_PER_SEC)*1000;
 
-    printf("The Total elapsed time for the slow Graham Scan is : %lf ms", totalTime);
+    printf("The Total elapsed time for the slow Graham Scan is : %lf ms\n", totalTime);
 
     return S;
 }

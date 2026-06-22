@@ -20,7 +20,7 @@
 #include <stdlib.h>
 
 // include your own stack C source file
-#include "sort.c"
+#include "sort.h"
 
 int main(){
 
@@ -29,7 +29,7 @@ int main(){
     int n; //number of points sa file
     int anchor;
 
-    fp = fopen("sample-input.txt", "r"); //open input file
+    fp = fopen("TEXTFILES/sample-input.txt", "r"); //open input file
     fscanf(fp, "%d", &n);   //read number of points
 
     //store in array
@@ -72,16 +72,16 @@ int main(){
     }
     printf("\n");
 
-    // QUICK SORT 
-    quickSort(coordinate, 1, n - 1, anchor);
+    // // QUICK SORT 
+    // quickSort(coordinate, 1, n - 1, anchor);
 
-    printf("sorted coordinates(quick sort):\n");
+    // printf("sorted coordinates(quick sort):\n");
 
-    for(int i = 0; i < n; i++)
-    {
-        printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
-    }
-    printf("\n");
+    // for(int i = 0; i < n; i++)
+    // {
+    //     printf("(%lf, %lf)\n", coordinate[i].x, coordinate[i].y);
+    // }
+    // printf("\n");
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
