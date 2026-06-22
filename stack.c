@@ -25,25 +25,6 @@
 #include "stack.h"
 #include <stdbool.h>
 
-
-/*
-    EACH FUNCTION DEFINITION MUST BE PRECEDED BY A INLINE DOCUMENTATION CONTAINING THE FOLLOWING:
-
-    a. Name of Programmer(s)
-    b. Name of Tester(s) -- for an unbiased black box testing, the tester should NOT be the same person as the programmer.
-    c. Code Type -- indicate EXPLICITLY if the code is one of the following: 100% Human Generated code, 100% AI Generated code
-       or a modified AI generated code.  If it is a modified AI generated code, indicate explicitly which lines were 
-       modified and the reason why a line of code had to be modified.
-    d. Purpose -- indicate the purpose of the function
-    e. Return -- indicate what will be returned (type None for void functions)
-    f. Parameters -- indicate the nature of the parameters
-
-    An example is shown below.  
-
-    Remove the Sample() function in your own C source code.
-*/
-
-
 /*
     a. Name of Programmer(s):  Shenelle Andrea Nono
     b. Name of Tester(s)    :  Mavrick De Guzman

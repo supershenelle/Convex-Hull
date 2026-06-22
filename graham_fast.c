@@ -27,7 +27,7 @@
 
 /*
     a. Name of Programmer(s):  Marco Yatco
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Mavrick De Guzman
     c. Code Type -- 100% Human Generated 
     d. Purpose: this function will determine the direction formed by the points
     e. Return: int - 0 if collinear, 1 if clockwise, 2 if counterclockwise
@@ -49,7 +49,7 @@ int orientation(Point p, Point q, Point r)
 
 /*
     a. Name of Programmer(s):  Marco Yatco
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Shenelle Andrea Nono
     c. Code Type -- 100% Human Generated 
     d. Purpose: this function computes for the convex hull using the Graham's scan algorithim.
                 this algorithim will be using the quickSort (Fast)

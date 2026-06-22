@@ -56,13 +56,4 @@ Point POP(Stack *stack);
 Point TOP(Stack *stack);
 Point NEXT_TO_TOP(Stack *stack);
 
-/*
-void Push(int a[], int *top);
-double Pop(int a[], int *top);
-bool isFull(int *top);
-bool isEmpty(int *top);
-double Top(int a[], int *top);
-double nextToTop(int a[], int *top);
-*/
-
 #endif

@@ -116,7 +116,7 @@ double distance(Point a, Point b)
 
 /*
     a. Name of Programmer(s):  Mavrick De Guzman
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Shenelle Andrea Nono
     c. Code Type -- 100% Human Generated 
     d. Purpose: this function will swap two points in an array
     e. Return: NONE
@@ -131,11 +131,9 @@ void swapPointArray(Point coordinate[], int i, int j)
     coordinate[j] = temp;
 }
 
-
-
 /*
     a. Name of Programmer(s):  Mavrick De Guzman
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Shenelle Andrea Nono
     c. Code Type -- 100% Human Generated 
     d. Purpose: This function sorts the array using insertion sort based on the polar angles by each point with the anchor point.
     e. Return: NONE
@@ -166,7 +164,7 @@ void insertionSort(Point a[], int anchor, int n)
 
 /*
     a. Name of Programmer(s):  Mavrick De Guzman
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Marco Yatco
     c. Code Type -- 100% Human Generated 
     d. Purpose: This function sorts the array using quick sort based on the polar angles by each point with the anchor point.
     e. Return: NONE
@@ -186,7 +184,7 @@ void quickSort(Point a[], int start, int end, int anchor)
 
 /*
     a. Name of Programmer(s):  Mavrick De Guzman
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Marco Yatco
     c. Code Type -- 100% Human Generated 
     d. Purpose: partitions the array of points for quick sort. selects the last element as pivot.
     e. Return: int - index of pivot after partition.
