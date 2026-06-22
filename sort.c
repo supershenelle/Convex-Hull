@@ -190,7 +190,7 @@ void quickSort(Point a[], int start, int end, int anchor)
 
 /*
     a. Name of Programmer(s):  Mavrick De Guzman
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Marco Yatco
     c. Code Type -- 100% Human Generated 
     d. Purpose: partitions the array of points for quick sort. selects the last element as pivot.
     e. Return: int - index of pivot after partition.
@@ -232,7 +232,7 @@ int partition(Point a[], int start, int end, int anchor)
 
 /*
     a. Name of Programmer(s):  Marco Yatco
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Mavrick De Guzman
     c. Code Type -- 100% Human Generated 
     d. Purpose: this function will determine the direction formed by the points
     e. Return: int - 0 if collinear, 1 if clockwise, 2 if counterclockwise
