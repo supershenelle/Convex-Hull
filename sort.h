@@ -42,3 +42,4 @@ void swapPointArray(Point coordinate[], int i, int j);
 void insertionSort(Point a[], int anchor, int n);
 void quickSort(Point a[], int start, int end, int anchor);
 int partition(Point a[], int start, int end, int anchor);
+int orientation(Point p, Point q, Point r);

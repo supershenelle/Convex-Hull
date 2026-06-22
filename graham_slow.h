@@ -35,5 +35,4 @@
 #include "stack.h"
 #include "sort.h"
 
-int orientation(Point p, Point q, Point r);
 Stack grahamSlow(Point point[], int n);
