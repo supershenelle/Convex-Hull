@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 // include your own stack header file
 #include "stack.h"
@@ -38,7 +39,8 @@ int orientation(Point p, Point q, Point r)
     double value;
     value = (q.y - p.y) * (r.x -q.x) - (q.x - p.x) * (r.y -q.y);
 
-    if(value == 0)
+    //if(value == 0)
+    if(fabs(value) < 1e-9) //used to check approximate
         return 0; //collinear
 
     if(value > 0)
@@ -68,6 +70,8 @@ Stack grahamSlow(Point point[], int n)
     time_start = clock();
 
     anchor = findAnchorPoint(point, n);
+    swapPointArray(point,0,anchor);
+    anchor = 0;
     insertionSort(point, anchor, n);
     CREATE(&S);
     PUSH(&S, point[0]);
@@ -76,7 +80,7 @@ Stack grahamSlow(Point point[], int n)
 
     for(i=3; i<n; i++)
     {
-        while(S.top >= 1 && orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])!=2)
+        while(S.top >= 2 && orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])!=2)
             POP(&S);
 
         PUSH(&S,point[i]);
