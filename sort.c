@@ -48,7 +48,7 @@
 
 /*
     a. Name of Programmer(s):  Mavrick De Guzman
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Shenelle Andrea Nono
     c. Code Type -- 100% Human Generated 
     d. Purpose: this function will find the index of the anchor point, which is the lowest point.
     e. Return: int - index of anchor point.
@@ -77,7 +77,7 @@ int findAnchorPoint(Point points[], int n) {
 
 /*
     a. Name of Programmer(s):  Mavrick De Guzman
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Shenelle Andrea Nono
     c. Code Type -- 100% Human Generated 
     d. Purpose: this function will return the polar angle between two points.
     e. Return: double - polar angle between the two points
@@ -96,7 +96,7 @@ double polarAngle(Point a, Point b)
 
 /*
     a. Name of Programmer(s):  Mavrick De Guzman
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Shenelle Andrea Nono
     c. Code Type -- 100% Human Generated 
     d. Purpose: this function will return the distance between two points
     e. Return: double - distance between the two points
