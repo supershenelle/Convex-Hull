@@ -28,7 +28,7 @@
 
 /*
     a. Name of Programmer(s):  Marco Yatco
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Shenelle Andrea Nono
     c. Code Type -- 100% Human Generated 
     d. Purpose: this function computes for the convex hull using the Graham's scan algorithim.
                 this algorithim will be using the quickSort (Fast)
@@ -56,7 +56,7 @@ Stack grahamFast(Point point[], int n)
 
     for(i=2; i<n; i++)
     {
-        while(S.top >= 2 && orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])==1)
+        while(S.top >= 2 && orientation(NEXT_TO_TOP(&S),TOP(&S),point[i])!=2)
             POP(&S);
 
         PUSH(&S,point[i]);
