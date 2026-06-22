@@ -135,7 +135,7 @@ void swapPointArray(Point coordinate[], int i, int j)
 
 /*
     a. Name of Programmer(s):  Mavrick De Guzman
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Shenelle Andrea Nono
     c. Code Type -- 100% Human Generated 
     d. Purpose: This function sorts the array using insertion sort based on the polar angles by each point with the anchor point.
     e. Return: NONE
@@ -170,7 +170,7 @@ void insertionSort(Point a[], int anchor, int n)
 
 /*
     a. Name of Programmer(s):  Mavrick De Guzman
-    b. Name of Tester(s)    :  
+    b. Name of Tester(s)    :  Shenelle Andrea Nono
     c. Code Type -- 100% Human Generated 
     d. Purpose: This function sorts the array using quick sort based on the polar angles by each point with the anchor point.
     e. Return: NONE
