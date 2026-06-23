@@ -1,4 +1,4 @@
-📝 Convex Hull
+## 📝 Convex Hull
 
 A C program that computes the convex hull of a set of 2D points using **Graham's Scan**, implemented with two different sorting algorithms to compare their empirical performance:
 
